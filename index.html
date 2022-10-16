@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Игра "Угадайка"</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+
+<div  class="container">
+    <div class="row game-card align-items-center">
+        <div class="col-auto">
+
+            <div id="content1" class="card text-center">
+                <div  class="card-body">
+                    <p class="col-auto h3">Хотите поиграть в игру "УГАДАЙКА"?</p> 
+                    <button id="hideContent1" class="btn btn-danger btn-lg">Поехали!</button>
+                </div>
+            </div>
+      
+            <div id="content2" class="card text-center">
+                <div  class="card-body">
+                    <p class="col-auto h3">Введите минимальное значение числа для игры от 0 до 100</p> 
+                    <div class="range_wrap">
+                        <input id="inputRange1" type="range" class="volume" value="0" OnInput="change1()" min="0" max="100" step="1">
+                        <div>0</div>
+                        <span h2 id="range_label1" class="range_label">0</span>
+                        <div>100</div>
+                      </div>
+                      <div class=card text-center">
+                        <p h5>Вы ввели минимальное значение (можете подкорректировать):</p>
+                        <input type="text" id= "input1" class="form-control" value="0">
+                      </div>
+                    <button id="hideContent2" class="btn btn-danger btn-lg">Подтвердить</button>
+                </div>
+            </div>
+
+            <div id="content3" class="card text-center">
+                <div  class="card-body">
+                    <p class="col-auto h3">Введите максимальное значение числа для игры от 0 до 100</p> 
+                    <div class="range_wrap">
+                        <input id="inputRange2"type="range" class="volume" value="100" OnInput="change2();" min="0" max="100" step="1">
+                        <div>0</div>
+                        <span h2 id="range_label2" class="range_label">0</span>
+                        <div>100</div>
+                    </div>
+                      <div class=card text-center">
+                        <p h5>Вы ввели максимальное значение (можете подкорректировать):</p>
+                        <input type="text" id= "input2" class="form-control" value="100" >
+                      </div>
+                    <button id="hideContent3" class="btn btn-danger btn-lg">Подтвердить</button>
+                </div>
+            </div>
+
+            <div id="content4" class="card text-center">
+                <div  class="card-body">
+                    <p  class="col-auto h3"><span id="inVite"> я его угадаю</span></p> 
+                    <button id="hideContent4" class="btn btn-danger btn-lg">Ключ на старт! Начнем игру!</button>
+                </div>
+            </div>
+            
+    <!--Основной блок-->      
+            <div id="content5" class="card text-center">
+                <div class="card-header" >
+                    <p class="col-auto h3">Вопрос №<span id="orderNumberField">5</span></p>
+                </div>
+                <div class="card-body">
+                    <div class="row no-gutters">
+                        <div class="col">
+                            <h3 class="card text-white bg-success mb-3" style="max-width: 18rem;"><span id="answerField">Вы загадали число 5?</span></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button class="btn btn-primary btn-sm" id="btnLess">МЕНЬШЕ</button>
+                        <button class="btn btn-success btn-lg" id="btnEqual">ВЕРНО!</button>
+                        <button class="btn btn-warning btn-sm" id="btnOver">БОЛЬШЕ</button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-danger btn-lg" id="btnRetry">Заново</button>
+                </div>
+            </div>
+
+        </div>  
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
