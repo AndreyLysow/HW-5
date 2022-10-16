@@ -70,11 +70,17 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
    const answerField = document.getElementById('answerField');
   
    var outputNumber;
-   if  (numberConvert(answerNumber).length <=20) {
+   if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber >=0) {
        outputNumber = numberConvert(answerNumber);
    } else {
        outputNumber = answerNumber;
    }
+   
+   if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber <0) {
+    outputNumber = 'минус' + Math.abs(numberConvert(answerNumber));
+} else {
+    outputNumber = '-' + Math.abs(answerNumber);
+}
    orderNumberField.innerText = orderNumber;
    answerField.innerText = `Вы загадали число  ${outputNumber}?`;
    
@@ -106,11 +112,17 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
                answerNumber  = Math.floor((minValue + maxValue) / 2);
                console.log(answerNumber);
                var outputNumber;
-               if  (numberConvert(answerNumber).length <=20) {
+               if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber >= 0) {
                    outputNumber = numberConvert(answerNumber);
                } else {
                    outputNumber = answerNumber;
                }
+
+               if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber <0) {
+                outputNumber = 'минус' + Math.abs(numberConvert(answerNumber));
+            } else {
+                outputNumber = '-' + Math.abs(answerNumber);
+            }
                orderNumber++;
                orderNumberField.innerText = orderNumber;
                const phraseRandom = Math.round( Math.random()*3);
@@ -144,13 +156,17 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
                minValue=minvalueLess;
                answerNumber  = Math.round((minValue + maxValue ) / 2);
                let outputNumber;
-               if  (numberConvert(answerNumber).length <=20) {
-                   outputNumber = numberConvert(answerNumber);
+               if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber >=0) {
+                   outputNumber = Math.abs(numberConvert(answerNumber));
                } else {
                    outputNumber = answerNumber;
                }
-               console.log(answerNumber);
    
+               if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber <0) {
+                outputNumber = 'минус' + Math.abs(numberConvert(answerNumber));
+            } else {
+                outputNumber = '-' + Math.abs(answerNumber);
+            }
                orderNumber++;
                orderNumberField.innerText = orderNumber;
                const phraseRandom = Math.round( Math.random()*3);
@@ -205,6 +221,8 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
                output = ones[answerNumber];
                return output;
            }
+
+
    
            if (numString.length == 3) {
                output = hundred[parseInt(numString.charAt(0))];
