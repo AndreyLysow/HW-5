@@ -41,7 +41,6 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
 
    let minValue = document.getElementById('input1').value;
    minValue = parseInt(minValue);
-   console.log(minValue);
    /*тернарный оператор для проверки  ввода текста, который не может быть интерпретирован как число (NaN) c присвоением значения по умолчанию, используя короткий цикл операций дизъюнкции.
    При вводе минимума  меньше -999 изменяет число на ближайшую границу (например, при вводе -10000 меняет значение на -999)*/
    minValue = (minValue <= -1000) ? 
@@ -53,7 +52,6 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
    let minvalueLess = minValue;
    let maxValue = document.getElementById('input2').value;
    maxValue = parseInt(maxValue);
-
    /*тернарный оператор для проверки  ввода текста, который не может быть интерпретирован как число (NaN) c присвоением значения по умолчанию, используя короткий цикл операций дизъюнкции.
    При вводе максимума  больше 1000 изменяет число на ближайшую границу (например, при вводе 1000 меняет значение на 999)*/
    maxValue = (maxValue >= 1000) ? 
@@ -62,7 +60,6 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
    maxValue = maxValue:
    maxValue = 100;
    var answerNumber  = Math.floor((minValue + maxValue) / 2);
-   console.log(answerNumber);
    var orderNumber = 1;
    var gameRun = true;
    
@@ -70,18 +67,18 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
    const answerField = document.getElementById('answerField');
   
    var outputNumber;
-   if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber >=0) {
+ 
+//    if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber >=0) {
+    if  ( answerNumber >=0) {
        outputNumber = numberConvert(answerNumber);
+     
    } else {
-       outputNumber = answerNumber;
+        outputNumber = 'минус' + Math.abs(numberConvert(answerNumber));
    }
    
-   if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber <0) {
-    outputNumber = 'минус' + Math.abs(numberConvert(answerNumber));
-} else {
-    outputNumber = '-' + Math.abs(answerNumber);
-}
+
    orderNumberField.innerText = orderNumber;
+   console.log(outputNumber);
    answerField.innerText = `Вы загадали число  ${outputNumber}?`;
    
    document.getElementById('btnRetry').addEventListener('click', function () {
@@ -107,24 +104,19 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
                gameRun = false;
            } else {
                minValue = answerNumber  + 1;
-               console.log(answerNumber, minValue, maxValue);
-               console.log(minValue, maxValue, (Math.floor((minValue + maxValue) / 2)));
                answerNumber  = Math.floor((minValue + maxValue) / 2);
-               console.log(answerNumber);
                var outputNumber;
-               if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber >= 0) {
-                   outputNumber = numberConvert(answerNumber);
-               } else {
-                   outputNumber = answerNumber;
-               }
 
-               if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber <0) {
-                outputNumber = 'минус' + Math.abs(numberConvert(answerNumber));
+               if  ( answerNumber >=0) {
+                outputNumber = numberConvert(answerNumber);
+              
             } else {
-                outputNumber = '-' + Math.abs(answerNumber);
+                 outputNumber = 'минус' + Math.abs(numberConvert(answerNumber));
             }
+            
                orderNumber++;
                orderNumberField.innerText = orderNumber;
+               console.log(outputNumber);
                const phraseRandom = Math.round( Math.random()*3);
                answerField.innerText = (phraseRandom === 0) ?
                `Думаю Вы загадали число ${outputNumber}` :
@@ -156,19 +148,17 @@ document.querySelector("#hideContent2").addEventListener("click", (event) => {
                minValue=minvalueLess;
                answerNumber  = Math.round((minValue + maxValue ) / 2);
                let outputNumber;
-               if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber >=0) {
-                   outputNumber = Math.abs(numberConvert(answerNumber));
-               } else {
-                   outputNumber = answerNumber;
-               }
+               
+         if  ( answerNumber >=0) {
+       outputNumber = numberConvert(answerNumber);
+     
+   } else {
+        outputNumber = 'минус' + Math.abs(numberConvert(answerNumber));
+   }
    
-               if  (Math.abs(numberConvert(answerNumber)).length <=20 && answerNumber <0) {
-                outputNumber = 'минус' + Math.abs(numberConvert(answerNumber));
-            } else {
-                outputNumber = '-' + Math.abs(answerNumber);
-            }
                orderNumber++;
                orderNumberField.innerText = orderNumber;
+               console.log(outputNumber);
                const phraseRandom = Math.round( Math.random()*3);
                answerField.innerText = (phraseRandom === 0) ?
                `Думаю Вы загадали число ${outputNumber}` :
